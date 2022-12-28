@@ -1,0 +1,154 @@
+.hidden {
+  display: none;
+}
+
+body {
+  background-color: #FEFCF3;
+}
+
+.pageInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  align-items: center;
+}
+
+.pageInfo ul {
+  list-style: none;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+
+.pageInfo ul li {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.button1 {
+  color: #604242;
+  font-size: large;
+  font-weight: bold;
+  background-color: #DBA39A;
+  border-radius: 12px;
+  padding: 15px;
+  border-style: none;
+  transition: all 300ms ease-in-out;
+}
+
+.button2 {
+  color: #604242;
+  font-size: large;
+  font-weight: bold;
+  background-color: #DBA39A;
+  border-radius: 12px;
+  padding: 15px;
+  border-style: none;
+  transition: all 300ms ease-in-out;
+}
+
+.button3 {
+  color: #604242;
+  font-size: large;
+  font-weight: bold;
+  background-color: #DBA39A;
+  border-radius: 12px;
+  padding: 15px;
+  border-style: none;
+  transition: all 300ms ease-in-out;
+}
+
+.hover-1:hover {
+  background-color: #F0DBDB;
+  box-shadow: 0 0 7px #b07777;
+}
+
+.hover-2:hover {
+  background-color: #F0DBDB;
+  box-shadow: 0 0 7px #b07777;
+}
+
+.hover-3:hover {
+  background-color: #F0DBDB;
+  box-shadow: 0 0 7px #b07777;
+}
+
+.pageQue {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  align-items: center;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+}
+
+.option {
+  background-color: #F0DBDB;
+  border-radius: 12px;
+  width: 300px;
+  height: 50px;
+  padding: 7px;
+  margin: 5px;
+  border-style: none;
+  transition: all 300ms ease-in-out;
+}
+
+.hover:hover {
+  background-color: #F5EBE0;
+  box-shadow: 0 0 7px #bc9393;
+}
+
+.option:active {
+  box-shadow: 0 0 7px #006de9;
+}
+
+.bonneAns {
+  background-color: rgba(0, 184, 120, 0.403);
+}
+
+.mauvAns {
+  background-color: rgba(255, 0, 0, 0.37);
+}
+
+.border {
+  box-shadow: 0 0 1px 2px #000000;
+}
+
+.textQue {
+  font-size: large;
+  font-weight: bold;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.textInfo {
+  font-size: large;
+  font-weight: bold;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.textTitle {
+  font-size: x-large;
+  font-weight: bolder;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.progress-bar {
+  width: 300px;
+  height: 20px;
+  background: #F5EBE0;
+  border-radius: 10px;
+}
+
+.progress-bar-fill {
+  width: 0%;
+  height: 100%;
+  background: #DBA39A;
+  border-radius: 8px;
+  transition: width 0.25s;
+}/*# sourceMappingURL=style.css.map */
