@@ -12,12 +12,6 @@ include './classes/qa.php' ;
     <title>phpQuiz</title>
 </head>
 <body>
-<?php
-
-$result=qa::selectQuestions();
-var_dump ($result);
-
-?>
 
 <section class="pageInfo">
     <h1 class="textTitle">Bienvenue au quiz PHP</h1>

@@ -9,12 +9,12 @@ let resBtn = document.querySelector(".resBtn");
 let quescoun = document.querySelector(".quescoun");
 let answercount = document.querySelector(".answercount");
 let options = document.querySelectorAll(".option");
-// let questions=[] ;
 let choise_btn11 = document.querySelector(".choise_btn11");
 let choise_btn21 = document.querySelector(".choise_btn21");
 let choise_btn31 = document.querySelector(".choise_btn31");
 let choise_btn41 = document.querySelector(".choise_btn41");
 
+getQuestion();
 
 let interval;
 function startTimer() {
@@ -37,7 +37,7 @@ function startTimer() {
         hover.classList.remove("hover");
       });
       options.forEach((option) => {
-        if (option.value == questions[randomNumber].answer) {
+        if (option.value == questions[randomNumber]['correctAnswer']) {
           option.classList.add("bonneAns");
         } else option.classList.add("mauvAns");
       });
@@ -49,7 +49,6 @@ function startTimer() {
 
 let progressBar = document.querySelector(".progress-bar");
 let progressBarFill = progressBar.querySelector(".progress-bar-fill");
-
 let setProgress = (percentage) => {
   progressBarFill.style.width = percentage + "%";
 };
@@ -175,12 +174,12 @@ let showQue = (index) => {
     option[i].setAttribute("onclick", "optionselected(this)");
   }
 
-  let quesArray = questions[index].question;
+  let quesArray = questions[index]['question'];
   ques.textContent = quesArray;
-  cho1.textContent = questions[index].choice1;
-  cho2.textContent = questions[index].choice2;
-  cho3.textContent = questions[index].choice3;
-  cho4.textContent = questions[index].choice4;
+  cho1.textContent = questions[index]['choix1'];
+  cho2.textContent = questions[index]['choix2'];
+  cho3.textContent = questions[index]['choix3'];
+  cho4.textContent = questions[index]['choix4'];
 };
 let answerCount = 0;
 let optionselected = (answer1) => {
@@ -200,14 +199,14 @@ let optionselected = (answer1) => {
   });
   answer1.classList.add("border");
   console.log(userUns);
-  if (userUns == questions[randomNumber].answer) {
+  if (userUns == questions[randomNumber]['correctAnswer']) {
     answerCount++;
     unswerNum(answerCount);
     answer1.classList.add("bonneAns");
   } else answer1.classList.add("mauvAns");
 
   options.forEach((option) => {
-    if (option.value == questions[randomNumber].answer) {
+    if (option.value == questions[randomNumber]['correctAnswer']) {
       option.classList.add("bonneAns");
     }
     // else option.classList.add("mauvAns")
@@ -254,3 +253,20 @@ let unswerNum = (index) => {
       "%) Votre note est parfait";
   }
 };
+
+
+ let questions=[];
+function getQuestion(){
+    let aj = new XMLHttpRequest();
+    aj.onreadystatechange = function(){
+        if(this.readyState===4 && this.status===200){
+            
+            questions = JSON.parse(this.responseText);
+            console.log(questions);
+            // showQue(generateRandomNumber());
+        }
+    }
+    aj.open("POST","http://localhost/PHP-Knowledge-Test-partie-backend/test.php",true);
+    aj.send();
+    
+}
