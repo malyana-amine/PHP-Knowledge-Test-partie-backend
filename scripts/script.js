@@ -270,3 +270,33 @@ function getQuestion(){
     aj.send();
     
 }
+
+
+
+
+
+function getInfo(){
+    // const browser = window.navigator.userAgent;
+    // const ip = window.location.hostname;
+    // const os = window.navigator.platform;
+    // const date = new Date().toString();
+
+
+
+    var browser = navigator.userAgent;
+    var ip = location.hostname;
+    var os = navigator.platform.os;
+    var date = new Date();
+
+
+    console.log(browser);
+    console.log(ip);
+    console.log(os);
+    console.log(date);
+    return { browser: browser, ip: ip, os: os, date: date }
+  }
+  getInfo();
+//   console.log(browser);
+//   console.log(ip);
+//   console.log(os);
+//   console.log(date);

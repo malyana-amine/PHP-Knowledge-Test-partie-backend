@@ -1,6 +1,13 @@
 <?php
 include './classes/qa.php' ;
 // include './classes/DBc.php' ;
+    // foreach($_SERVER as $key => $value){
+    //     echo "<hr>" ;
+    //     echo $key." : ".$value ;
+    // }
+    // echo $_SERVER['SERVER_ADDR'] ;
+    // die() ;
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
