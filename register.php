@@ -1,11 +1,12 @@
 <?php
 
 include './classes/user.php' ;
+// session_start();
+?>
+<?php
+echo $_SESSION['id'];
 
 ?>
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

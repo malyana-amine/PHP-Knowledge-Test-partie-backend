@@ -42,7 +42,7 @@ function startTimer() {
         } else option.classList.add("mauvAns");
       });
     }
-  }, 1000);
+  }, 500);
 }
 
 ///////////////////////////
@@ -60,7 +60,7 @@ btnstar.onclick = () => {
   pageInfo.classList.remove("pageInfo");
   pageQue1.classList.remove("hidden");
   pageQue1.classList.add("pageQue");
-  answerCount = 0;
+  answerCount1 = 0;
   showQue(generateRandomNumber());
   setProgress(que_num * 10);
   quesNum(1);
@@ -160,6 +160,9 @@ resBtn.addEventListener("click", () => {
   pageRes.classList.remove("hidden");
   pageQue1.classList.remove("pageQue");
   pageQue1.classList.add("hidden");
+  console.log(answerCount1);
+  let savesc = document.getElementById('scoresave');
+  savesc.value = answerCount1;
 });
 
 let showQue = (index) => {
@@ -181,7 +184,10 @@ let showQue = (index) => {
   cho3.textContent = questions[index]['choix3'];
   cho4.textContent = questions[index]['choix4'];
 };
-let answerCount = 0;
+let answerCount1 = 0;
+
+
+
 let optionselected = (answer1) => {
   clearInterval(interval);
   let userUns = answer1.value;
@@ -200,8 +206,8 @@ let optionselected = (answer1) => {
   answer1.classList.add("border");
   console.log(userUns);
   if (userUns == questions[randomNumber]['correctAnswer']) {
-    answerCount++;
-    unswerNum(answerCount);
+    answerCount1++;
+    unswerNum(answerCount1);
     answer1.classList.add("bonneAns");
   } else answer1.classList.add("mauvAns");
 
@@ -251,6 +257,8 @@ let unswerNum = (index) => {
       "/10(" +
       (index / 10) * 100 +
       "%) Votre note est parfait";
+
+
   }
 };
 
@@ -270,33 +278,3 @@ function getQuestion(){
     aj.send();
     
 }
-
-
-
-
-
-function getInfo(){
-    // const browser = window.navigator.userAgent;
-    // const ip = window.location.hostname;
-    // const os = window.navigator.platform;
-    // const date = new Date().toString();
-
-
-
-    var browser = navigator.userAgent;
-    var ip = location.hostname;
-    var os = navigator.platform.os;
-    var date = new Date();
-
-
-    console.log(browser);
-    console.log(ip);
-    console.log(os);
-    console.log(date);
-    return { browser: browser, ip: ip, os: os, date: date }
-  }
-  getInfo();
-//   console.log(browser);
-//   console.log(ip);
-//   console.log(os);
-//   console.log(date);

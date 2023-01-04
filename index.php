@@ -1,5 +1,8 @@
 <?php
 include './classes/qa.php' ;
+include './classes/player.php' ;
+// include 'checklogin.php' ;
+session_start();
 // include './classes/DBc.php' ;
     // foreach($_SERVER as $key => $value){
     //     echo "<hr>" ;
@@ -19,7 +22,6 @@ include './classes/qa.php' ;
     <title>phpQuiz</title>
 </head>
 <body>
-
 <section class="pageInfo">
     <h1 class="textTitle">Bienvenue au quiz PHP</h1>
     <ul class="textInfo">
@@ -54,12 +56,36 @@ include './classes/qa.php' ;
     
     <button class="exitBtn textInfo button2 hover-2">exit Quiz</button>
     <button class="nxtBtn textInfo hidden button3 hover-3">next question</button>
-    <button class="resBtn textInfo hidden button3 hover-3">show your Result</button>
+    <button type="submit" class="resBtn textInfo hidden button3 hover-3">show your Result</button>
 </div>
 </section>
 
 <section class="pageRes hidden">
     <p class="textInfo answercount">tu es terminé le quiz avec une note de 0/10(0%)</p>
+        <form method="POST">   
+        <input id="scoresave" name="savescore" type="hidden" >    
+    <button type="submit" name="submit2" class="textInfo button2 hover-2">save your score</button>  
+</form>
+<?php 
+
+if(isset($_POST['submit2'])){
+    $idPLayer = $_SESSION['id'];
+    $score = $_POST['savescore'];
+    $IP = $_SERVER['REMOTE_ADDR'];
+    $OS = "windows";
+    $browser =$_SERVER['HTTP_USER_AGENT'];
+    $datePlayer = date('Y-m-d');
+    
+    // var_dump($password);
+    // $ply = new player($idPLayer,$score,$IP,$OS,$browser,$datePlayer);
+    player::insertPlayerData($idPLayer,$score,$IP,$OS,$browser,$datePlayer);
+    // $ply->insertPlayerData();
+    
+
+    
+}
+
+?>
 </section>
 
 

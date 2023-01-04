@@ -57,7 +57,7 @@ class user {
 
 
         $conn1=DbConnection::connect();
-        $login = $conn1->prepare("select * from `user` where email = '$this->email' and password = '$this->email' and role = '1'");
+        $login = $conn1->prepare("select * from `user` where email = '$this->email' and password = '$this->password' and role = '1'");
         $login->execute();
 
 
@@ -67,22 +67,18 @@ $num_rows = $login->rowCount();
 // var_dump ($num_rows);
 
         if ($num_rows == 1) {
-            header('location: index.php'); 
+             
 
             $data=$login->fetch(PDO::FETCH_ASSOC);
             $_SESSION['name'] =$data['name'] ;
             $_SESSION['id'] =$data['id'] ;
             // var_dump ($data['id']);
-            var_dump ($data['name']);
+            // var_dump ($data['name']);
+            header('location: index.php');
+    }else{
+        header('location: register.php');
 
-
-            // $_SESSION['email'] = $this->email ;
-            // $_SESSION['password'] = $this->email;
-            // var_dump ($_SESSION['email']);
-            // var_dump($_SESSION['password']);
     }
-
-
 
     }
 }
